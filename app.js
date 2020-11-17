@@ -1,5 +1,6 @@
 const { Client } = require('whatsapp-web.js');
 const express = require('express');
+const { body, validationResult } = require('express-validator');
 const socketIO = require('socket.io');
 const http = require('http');
 const qrcode = require('qrcode');
@@ -32,16 +33,6 @@ client.on('qr', (qr) => {
     // qrcode.generate(qr, {small: true});
 });
 
-client.on('authenticated', (session) => {
-    console.log('AUTHENTICATED', session);
-    sessionCfg=session;
-    fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
-        if (err) {
-            console.error(err);
-        }
-    });
-});
-
 client.on('message', msg => {
     if (msg.body == '!ping') {
         msg.reply('pong');
@@ -67,12 +58,40 @@ io.on('connection', function(socket) {
 	client.on('ready', () => {
 	    console.log('Client is ready!');
 	    socket.emit('message', 'Whatsapp sudah ready');
+	    socket.emit('ready', 'Whatsapp ready');
 	});
+
+	client.on('authenticated', (session) => {
+	    // console.log('AUTHENTICATED', session);
+	    socket.emit('message', 'Whatsapp sudah authenticated');
+	    socket.emit('authenticated', 'Whatsapp authenticated');
+	    sessionCfg=session;
+	    fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
+	        if (err) {
+	            console.error(err);
+	        }
+	    });
+	});
+
 });
 
-// send message
-app.post('/send-message', (req, res) => {
-	const number = req.body.number;
+// api send message
+app.post('/send-message', [
+	body('number').notEmpty(),
+	body('message').notEmpty(),
+], (req, res) => {
+	const errors  = validationResult(req).formatWith(({ msg }) => {
+		return msg;
+	});
+
+	if (!errors.isEmpty()) {
+		return res.status(422).json({
+			status: false,
+			response: errors.mapped()
+		});
+	}
+
+	const number  = req.body.number;
 	const message = req.body.message;
 
 	client.sendMessage(number, message).then(response => {

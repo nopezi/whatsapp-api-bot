@@ -26,7 +26,16 @@
 			socket.on('qr', function(src) {
 				// console.log('url qr code nya ' + src);
 				$('#qrcode').attr('src', src);
-			})
+			});
+
+			socket.on('ready', function(src) {
+				$('#qrcode').hide();
+			});
+
+			socket.on('authenticated', function(src) {
+				$('#qrcode').hide();
+			});
+
 		});
 	</script>
 
