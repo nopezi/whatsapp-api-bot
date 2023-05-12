@@ -39,6 +39,8 @@ connectToWhatsApp()
 // route express
 route(app)
 
-server.listen(9000, function() {
-	console.log('App running on *:' + 9000)
+const port = process.env.PORT || 9000
+
+server.listen(port, function() {
+	console.log('App running on *:' + port)
 });
