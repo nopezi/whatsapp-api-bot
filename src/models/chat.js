@@ -55,7 +55,7 @@ const get_all_pesan = (tanggal, callback) => {
           let dateTime = `${tanggal.getFullYear()}-${tanggal.getMonth()}-${tanggal.getDate()} ${tanggal.getHours()}:${tanggal.getMinutes()}:${tanggal.getSeconds()}`;
 
           let tanggal_zone = new Date(element.created_at).toLocaleString("id-ID", {
-            timeZone: "Asia/Bangkok",
+            timeZone: "Asia/Jakarta",
             year: 'numeric',
             month: "2-digit",
             day: "2-digit",

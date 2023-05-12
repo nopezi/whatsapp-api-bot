@@ -107,7 +107,7 @@ const konek_wa = () => {
         : "";
       const waktu = Math.floor(m.messageTimestamp * 1000);
       let tanggal = new Date(waktu).toLocaleString("id-ID", {
-        timeZone: "Asia/Bangkok",
+        timeZone: "Asia/Jakarta",
         year: 'numeric',
         month: "2-digit",
         day: "2-digit",
