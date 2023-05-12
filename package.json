@@ -1,27 +1,67 @@
 {
-  "name": "whatsapp-api",
-  "version": "1.0.0",
-  "description": "whatsapp api untuk bot",
-  "main": "app.js",
+  "name": "Wa-OpenAI",
+  "version": "1.2.4",
+  "description": "WhatsApp Bot OpenAI Using Lib Baileys Multi Device",
+  "main": "src/app.js",
+  "type": "commonjs",
+  "engines": {
+    "npm": "8.19.2",
+    "node": "16.18.0"
+  },
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "nodemon": "nodemon srs/app.js"
   },
   "keywords": [
-    "whatsapp-api",
-    "node.js"
+    "termux",
+    "whatsapp-openai",
+    "whatsapp-openai",
+    "whatsapp-bot",
+    "whatsapp-baileys",
+    "baileys-md",
+    "bot-wa",
+    "bot-md",
+    "whatsapp-multi-device"
   ],
-  "author": "Nopezi saputra pratama",
+  "base": "https://github.com/DikaArdnt/Hisoka-Morou",
+  "author": "Yusril",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-validator": "^6.6.1",
-    "http": "0.0.1-security",
-    "nodemon": "^2.0.6",
-    "package.json": "^2.0.1",
-    "qrcode": "^1.4.4",
+    "@adiwajshing/baileys": "4.4.0",
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "awesome-phonenumber": "^2.64.0",
+    "axios": "^1.2.1",
+    "chalk": "^4.1.2",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "figlet": "^1.5.2",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.21",
+    "moment": "2.24.0",
+    "mysql": "^2.18.1",
+    "node-cron": "^3.0.2",
+    "nodemon": "^2.0.22",
+    "openai": "^3.1.0",
+    "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
-    "socket.io": "^3.0.1",
-    "whatsapp-web.js": "^1.11.0"
-  }
+    "socket.io": "^4.5.4",
+    "socket.io-client": "2.3.0",
+    "util": "^0.12.4"
+  },
+  "directories": {
+    "lib": "lib",
+    "src": "src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sansekai/Wa-OpenAI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sansekai/Wa-OpenAI/issues"
+  },
+  "homepage": "https://github.com/Sansekai/Wa-OpenAI#readme"
 }
