@@ -105,19 +105,19 @@ const konek_wa = () => {
         : m.message?.extendedTextMessage?.text
         ? m.message.extendedTextMessage.text
         : "";
-      const waktu = Math.floor(m.messageTimestamp * 1000);
-      let tanggal = new Date(waktu).toLocaleString("id-ID", {
-        timeZone: "Asia/Jakarta",
-        year: 'numeric',
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
+      // const waktu = Math.floor(m.messageTimestamp * 1000);
+      // let tanggal = new Date(waktu).toLocaleString("id-ID", {
+      //   timeZone: "Asia/Jakarta",
+      //   year: 'numeric',
+      //   month: "2-digit",
+      //   day: "2-digit",
+      //   hour: "2-digit",
+      //   minute: "2-digit",
+      //   second: "2-digit",
+      // });
       
-      const tanggal_clear = moment(tanggal.replace(/\./g, ':')).format('YYYY-DD-MM hh:mm:ss')
-      console.log('tanggal ubah :: ', tanggal_clear)
+      // const tanggal_clear = moment(tanggal.replace(/\./g, ':')).format('YYYY-DD-MM hh:mm:ss')
+      // console.log('tanggal ubah :: ', tanggal_clear)
 
       if (pesan) {
         chat_model.simpan_pesan({
@@ -128,7 +128,8 @@ const konek_wa = () => {
             ? client.user.id
             : pesanMasuk.messages[0].key.remoteJid,
           pesan: pesan,
-          tanggal: tanggal_clear,
+          tanggal: '', //tanggal_clear,
+          timestamp: m.messageTimestamp
         });
       }
       // await sock.sendMessage(m.messages[0].key.remoteJid!, { text: 'Hello there!' })

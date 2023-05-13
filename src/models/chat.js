@@ -8,12 +8,14 @@ const simpan_pesan = (data) => {
   sql += `pengirim,`;
   sql += `penerima,`;
   sql += `chat,`;
-  sql += `created_at `;
+  sql += `created_at, `;
+  sql += `timestamp `;
   sql += ` ) VALUES ( `;
   sql += `'${data.pengirim}', `;
   sql += `'${data.penerima}', `;
   sql += `'${data.pesan}', `;
-  sql += `'${data.tanggal}' ) `;
+  sql += `'${data.tanggal}', ) `;
+  sql += `'${data.timestamp}' ) `;
 
   console.log("simpan pesan :: ", sql);
 
@@ -32,7 +34,7 @@ const get_all_pesan = (tanggal, callback) => {
   if (tanggal) {
     sql += ` WHERE created_at like '%${tanggal}%' `;
   } else {
-    sql += ` WHERE created_at like '%${helpers.tanggal_sekarang()}%' `;
+    // sql += ` WHERE created_at like '%${helpers.tanggal_sekarang()}%' `;
   }
 
   sql += ` ORDER BY created_at DESC `;
@@ -63,6 +65,9 @@ const get_all_pesan = (tanggal, callback) => {
             minute: "2-digit",
             second: "2-digit",
           });
+
+          console.log(element.created_at)
+          console.log(tanggal_zone)
 
           result[row].created_at = tanggal_zone;
         });

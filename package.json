@@ -23,7 +23,6 @@
     "bot-md",
     "whatsapp-multi-device"
   ],
-  "base": "https://github.com/DikaArdnt/Hisoka-Morou",
   "author": "Yusril",
   "license": "MIT",
   "dependencies": {
@@ -54,10 +53,6 @@
   "directories": {
     "lib": "lib",
     "src": "src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sansekai/Wa-OpenAI.git"
   },
   "bugs": {
     "url": "https://github.com/Sansekai/Wa-OpenAI/issues"

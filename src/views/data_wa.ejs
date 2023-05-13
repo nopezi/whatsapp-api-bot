@@ -220,11 +220,18 @@
                         dataSrc: 'data',
                     },
                     columns: [
-                        { data: 'pengirim' },
-                        { data: 'penerima' },
-                        { data: 'chat' },
-                        { data: 'created_at' }
-                    ]
+                        { data: 'pengirim', "width": "10%" },
+                        { data: 'penerima', "width": "20%" },
+                        { data: 'chat', "width": "20%" },
+                        { data: 'created_at', "width": "10%" }
+                    ],
+                    responsive: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ],
+                    scrollX: true,
+                    order: [[3, 'desc']],
                 }).ajax.reload()
             }
 
