@@ -4,10 +4,10 @@ FROM debian:bullseye as builder
 # ARG YARN_VERSION=1.22.19
 # ARG YARN_VERSION=4.0.0-rc.40
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-RUN source ~/.bashrc
-RUN nvm install v16.18.0
-RUN nvm use v16.18.0
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+# # RUN source ~/.bashrc
+# RUN nvm install v16.18.0
+# RUN nvm use v16.18.0
 
 RUN apt-get update; apt install -y curl python-is-python3 pkg-config build-essential
 RUN curl https://get.volta.sh | bash
