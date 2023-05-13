@@ -1,7 +1,9 @@
 FROM debian:bullseye as builder
 
-ARG NODE_VERSION=16.18.0
+# ARG NODE_VERSION=16.18.0
 # ARG YARN_VERSION=1.22.19
+
+ARG NODE_VERSION=18.15.0
 ARG YARN_VERSION=4.0.0-rc.40
 
 # RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
